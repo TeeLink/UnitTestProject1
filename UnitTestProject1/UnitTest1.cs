@@ -54,15 +54,15 @@ namespace UnitTestProject1
             Assert.AreEqual("Sure.", bob.hey(remark));
         }
 
-        //[TestMethod]
-        //public void test_asking_gibberish()
-        //{
-        //    remark = String.Join("", Enumerable.Range(97, 26)
-        //                    .Select(a => new { A = (char)(a) })
-        //                    .OrderBy(x => Guid.NewGuid()).Select(x => x.A)) + "?";
+        [TestMethod]
+        public void test_asking_gibberish()
+        {
+            remark = String.Join("", Enumerable.Range(97, 26)
+                            .Select(a => new { A = (char)(a) })
+                            .OrderBy(x => Guid.NewGuid()).Select(x => x.A)) + "?";
 
-        //    Assert.AreEqual("Sure.", bob.hey(remark));
-        //}
+            Assert.AreEqual("Sure.", bob.hey(remark));
+        }
 
         //[TestMethod]
         //public void test_talking_forcefully()
