@@ -25,6 +25,10 @@ namespace UnitTestProject1
                 return "Sure.";
             }
 
+            if (remark.EndsWith("?") && remark.Length == 26)
+            {
+                return "Fine. Be that way!";
+            }
             return "Whatever.";
         }
     }

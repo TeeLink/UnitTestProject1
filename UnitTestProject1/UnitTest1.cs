@@ -61,121 +61,121 @@ namespace UnitTestProject1
                             .Select(a => new { A = (char)(a) })
                             .OrderBy(x => Guid.NewGuid()).Select(x => x.A)) + "?";
 
+            Assert.AreEqual("Fine. Be that way!", bob.hey(remark));
+        }
+
+        [TestMethod]
+        public void test_talking_forcefully()
+        {
+
+            remark = "Let's go make out behind the gym!";
+            Assert.AreEqual("Whatever.", bob.hey(remark));
+        }
+
+        [TestMethod]
+        public void test_using_acronyms_in_regular_speech()
+        {
+
+            remark = "It's OK if you don't want to go to the DMV.";
+            Assert.AreEqual("Whatever.", bob.hey(remark));
+        }
+
+        [TestMethod]
+        public void test_forceful_questions()
+        {
+
+            remark = "WHAT THE HELL WERE YOU THINKING?";
+            Assert.AreEqual("Whoa, chill out!", bob.hey(remark));
+        }
+
+        [TestMethod]
+        public void test_shouting_numbers()
+        {
+
+            remark = "1, 2, 3 GO!";
+            Assert.AreEqual("Whoa, chill out!", bob.hey(remark));
+        }
+
+        [TestMethod]
+        public void test_only_numbers()
+        {
+
+            remark = "1, 2, 3";
+            Assert.AreEqual("Whatever.", bob.hey(remark));
+        }
+
+        [TestMethod]
+        public void test_question_with_only_numbers()
+        {
+
+            remark = "4?";
             Assert.AreEqual("Sure.", bob.hey(remark));
         }
 
-        //[TestMethod]
-        //public void test_talking_forcefully()
-        //{
+        [TestMethod]
+        public void test_shouting_with_special_characters()
+        {
 
-        //    remark = "Let's go make out behind the gym!";
-        //    Assert.AreEqual("Whatever.", bob.hey(remark));
-        //}
+            remark = "ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!";
+            Assert.AreEqual("Whoa, chill out!", bob.hey(remark));
+        }
 
-        //[TestMethod]
-        //public void test_using_acronyms_in_regular_speech()
-        //{
+        [TestMethod]
+        public void test_shouting_with_no_exclamation_mark()
+        {
 
-        //    remark = "It's OK if you don't want to go to the DMV.";
-        //    Assert.AreEqual("Whatever.", bob.hey(remark));
-        //}
+            remark = "I HATE YOU";
+            Assert.AreEqual("Whoa, chill out!", bob.hey(remark));
+        }
 
-        //[TestMethod]
-        //public void test_forceful_questions()
-        //{
+        [TestMethod]
+        public void test_statement_containing_question_mark()
+        {
 
-        //    remark = "WHAT THE HELL WERE YOU THINKING?";
-        //    Assert.AreEqual("Whoa, chill out!", bob.hey(remark));
-        //}
+            remark = "}ing with ? means a question.";
+            Assert.AreEqual("Whatever.", bob.hey(remark));
+        }
 
-        //[TestMethod]
-        //public void test_shouting_numbers()
-        //{
+        [TestMethod]
+        public void test_prattling_on()
+        {
 
-        //    remark = "1, 2, 3 GO!";
-        //    Assert.AreEqual("Whoa, chill out!", bob.hey(remark));
-        //}
+            remark = "Wait! Hang on. Are you going to be OK?";
+            Assert.AreEqual("Sure.", bob.hey(remark));
+        }
 
-        //[TestMethod]
-        //public void test_only_numbers()
-        //{
+        [TestMethod]
+        public void test_silence()
+        {
 
-        //    remark = "1, 2, 3";
-        //    Assert.AreEqual("Whatever.", bob.hey(remark));
-        //}
+            remark = "";
+            Assert.AreEqual("Fine. Be that way!", bob.hey(remark));
+        }
 
-        //[TestMethod]
-        //public void test_question_with_only_numbers()
-        //{
+        [TestMethod]
+        public void test_prolonged_silence()
+        {
 
-        //    remark = "4?";
-        //    Assert.AreEqual("Sure.", bob.hey(remark));
-        //}
+            remark = "           ";
+            Assert.AreEqual("Fine. Be that way!", bob.hey(remark));
+        }
 
-        //[TestMethod]
-        //public void test_shouting_with_special_characters()
-        //{
+        [TestMethod]
+        public void test_alternate_silences()
+        {
 
-        //    remark = "ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!";
-        //    Assert.AreEqual("Whoa, chill out!", bob.hey(remark));
-        //}
+            remark = "\t\t\t\t\t";
+            Assert.AreEqual("Fine. Be that way!", bob.hey(remark));
+        }
 
-        //[TestMethod]
-        //public void test_shouting_with_no_exclamation_mark()
-        //{
+        [TestMethod]
+        public void test_on_multiple_line_questions()
+        {
 
-        //    remark = "I HATE YOU";
-        //    Assert.AreEqual("Whoa, chill out!", bob.hey(remark));
-        //}
-
-        //[TestMethod]
-        //public void test_statement_containing_question_mark()
-        //{
-
-        //    remark = "}ing with ? means a question.";
-        //    Assert.AreEqual("Whatever.", bob.hey(remark));
-        //}
-
-        //[TestMethod]
-        //public void test_prattling_on()
-        //{
-
-        //    remark = "Wait! Hang on. Are you going to be OK?";
-        //    Assert.AreEqual("Sure.", bob.hey(remark));
-        //}
-
-        //[TestMethod]
-        //public void test_silence()
-        //{
-
-        //    remark = "";
-        //    Assert.AreEqual("Fine. Be that way!", bob.hey(remark));
-        //}
-
-        //[TestMethod]
-        //public void test_prolonged_silence()
-        //{
-
-        //    remark = "           ";
-        //    Assert.AreEqual("Fine. Be that way!", bob.hey(remark));
-        //}
-
-        //[TestMethod]
-        //public void test_alternate_silences()
-        //{
-
-        //    remark = "\t\t\t\t\t";
-        //    Assert.AreEqual("Fine. Be that way!", bob.hey(remark));
-        //}
-
-        //[TestMethod]
-        //public void test_on_multiple_line_questions()
-        //{
-
-        //    remark = @"Does this cryogenic chamber make me look fat?
-        //               no";
-        //    Assert.AreEqual("Whatever.", bob.hey(remark));
-        //}
+            remark = @"Does this cryogenic chamber make me look fat?
+                       no";
+            Assert.AreEqual("Whatever.", bob.hey(remark));
+        }
 
     }
 }
