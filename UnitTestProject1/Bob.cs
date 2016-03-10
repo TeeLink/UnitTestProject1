@@ -20,6 +20,11 @@ namespace UnitTestProject1
                 return "Fine. Be that way!";
             }
 
+            if (remark.EndsWith("?"))
+            {
+                return "Sure.";
+            }
+
             return "Whatever.";
         }
     }
