@@ -35,7 +35,7 @@ namespace UnitTestProject1
                             .OrderBy(x => Guid.NewGuid()).Select(x => x.A));
 
 
-            Assert.AreEqual("Fine. Be that way!", bob.hey(remark));
+            Assert.AreEqual("Whoa, chill out!", bob.hey(remark));
         }
 
         [TestMethod]
@@ -61,7 +61,7 @@ namespace UnitTestProject1
                             .Select(a => new { A = (char)(a) })
                             .OrderBy(x => Guid.NewGuid()).Select(x => x.A)) + "?";
 
-            Assert.AreEqual("Fine. Be that way!", bob.hey(remark));
+            Assert.AreEqual("Sure.", bob.hey(remark));
         }
 
         [TestMethod]
@@ -178,4 +178,5 @@ namespace UnitTestProject1
         }
 
     }
+
 }

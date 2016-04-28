@@ -10,14 +10,9 @@ namespace UnitTestProject1
     {
         public string hey(string remark)
         {
-            if (remark.EndsWith("!"))
+            if (IsShouting(remark))
             {
                 return "Whoa, chill out!";
-            }
-
-            if (remark.Length == 26)
-            {
-                return "Fine. Be that way!";
             }
 
             if (remark.EndsWith("?"))
@@ -25,11 +20,26 @@ namespace UnitTestProject1
                 return "Sure.";
             }
 
-            if (remark.EndsWith("?") && remark.Length == 26)
+            if (string.IsNullOrWhiteSpace(remark))
             {
                 return "Fine. Be that way!";
             }
             return "Whatever.";
+        }
+
+        private bool IsShouting(string remark)
+        {
+            if (!remark.ToCharArray().Any(c => char.IsLetter(c)))
+            {
+                return false;
+            }
+
+            var result = remark.ToCharArray().All(c => char.IsUpper(c) 
+                    || char.IsPunctuation(c)
+                    || char.IsSeparator(c)
+                    || char.IsNumber(c)
+                    || char.IsSymbol(c));
+            return result;
         }
     }
 }
